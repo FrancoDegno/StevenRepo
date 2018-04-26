@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PresentacionScene.unity
+    guid: 1350b42cd3fb52143b28cb93222efd78
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: a71a2ec10a9c8674dab4d3c9f8c7bb2e
   - enabled: 1
@@ -14,6 +17,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stebonnie.unity
     guid: e12aaebe2730e7f47ae097016ac225be
-  - enabled: 1
-    path: Assets/Scenes/PresentacionScene.unity
-    guid: 1350b42cd3fb52143b28cb93222efd78

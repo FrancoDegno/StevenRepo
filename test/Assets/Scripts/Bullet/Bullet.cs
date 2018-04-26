@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 	bool speedByTimer=false;
 	public float speedBullet;
 	public float Ang { get;set;}
-
+    bool mov3d=false;
 
 
 
@@ -24,6 +24,17 @@ public class Bullet : MonoBehaviour {
 
 	}
 
+    public void activateMov3d()
+    {
+        mov3d = true;
+    }
+
+    public void bullet3D()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * speedBullet);
+
+    }
+
 	public virtual void BulletMov()
 	{
 		AngShot (speedBullet);
@@ -32,8 +43,13 @@ public class Bullet : MonoBehaviour {
 
     void Update()
     {
-		BulletMov ();
+
 		
+        if(mov3d)
+            bullet3D();
+        else
+            BulletMov();
+
     }
 
 

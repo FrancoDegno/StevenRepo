@@ -32,8 +32,10 @@ public class StebonnieShot : Shot {
             if (auxBullet != null)
             {
                 auxBullet.transform.position = CannonPos.position;
+                
+                auxBullet.transform.localEulerAngles = CannonPos.localEulerAngles;
                 auxBullet.SetActive(true);
-                auxBullet.GetComponent<Bullet>().Ang = ang;
+                auxBullet.GetComponent<Bullet>().activateMov3d();
 
             }
         }

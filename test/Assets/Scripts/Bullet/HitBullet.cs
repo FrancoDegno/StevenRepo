@@ -6,6 +6,7 @@ public class HitBullet : MonoBehaviour {
 
     [SerializeField]
     int layerTarget;
+    [Header("Explo pool")]
     [SerializeField]
 	Transform exploBullet;
     [SerializeField]
@@ -69,10 +70,10 @@ public class HitBullet : MonoBehaviour {
         if (explotion != null) {
 			float size = sizeImpactExplo;
             position = transform.position;
-
+            print(other.name);
 			//si el objeto al que se le hace daño es destruido retornara true
 		if (other.GetComponent<ReciveDmg> ().reciveDamage(BulletDmg)) { 
-			size = sizeDeathExplo;
+			    size = sizeDeathExplo;
                 position = other.transform.position;
             }
 
@@ -106,6 +107,7 @@ public class HitBullet : MonoBehaviour {
 		if (other.gameObject.layer == layerTarget)
 		{
             createExplotion(other.gameObject);
+            gameObject.SetActive(false);
         }
 
 	}
