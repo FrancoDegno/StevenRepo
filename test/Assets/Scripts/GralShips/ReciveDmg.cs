@@ -6,7 +6,7 @@ public class ReciveDmg : MonoBehaviour {
 
     // Use this for initialization
 
-
+   
     [SerializeField]
     protected Animator Anim;
     [SerializeField]

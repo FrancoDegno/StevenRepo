@@ -27,6 +27,7 @@ public class CreateEnemies : MonoBehaviour {
 	int changeby_enemieDeads;
 	[SerializeField]
 	float changeby_LapTime;
+   
 
 
 	int number_wave=0;
@@ -48,7 +49,8 @@ public class CreateEnemies : MonoBehaviour {
         number_wave++;
         yield return new WaitForSeconds(changeby_LapTime);
         number_wave++;
-
+        yield return new WaitForSeconds(changeby_LapTime);
+        MySingleClass.fGame = true;
     }
 
 	GameObject selectDesactiveShip()

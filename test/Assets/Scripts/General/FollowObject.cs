@@ -17,13 +17,14 @@ public class FollowObject : MonoBehaviour {
     Vector3 followVector;
 	// Use this for initialization
 	void Start () {
+        followVector = target.position;
         startcoroutine();
 	}
 
     void startcoroutine()
     {
         StartCoroutine(follow());
-
+        
     }
 	
     IEnumerator follow()
@@ -41,7 +42,7 @@ public class FollowObject : MonoBehaviour {
             followVector = new Vector3(target.position.x, transform.position.y,target.position.z);
         else
         if (!ejex && ejey && ejez)
-            followVector = new Vector3(transform.position.x, target.position.y, target.position.z);
+            followVector = new Vector3(transform.localPosition.x, target.position.y, target.position.z);
 
         startcoroutine();
 
@@ -49,7 +50,11 @@ public class FollowObject : MonoBehaviour {
 
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, followVector, Time.deltaTime*0.5f);
+
+        if (!ejex && ejey && ejez)
+            followVector.x = target.position.x;
+
+            transform.position = Vector3.Lerp(transform.position, followVector, Time.deltaTime*0.5f);
 
     }
 

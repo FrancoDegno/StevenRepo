@@ -15,6 +15,8 @@ public class HitBullet : MonoBehaviour {
     float sizeImpactExplo;
     [SerializeField]
     float sizeDeathExplo;
+    [SerializeField]
+    bool desactiveImpact = true;
 
     // Use this for initialization
 
@@ -97,7 +99,8 @@ public class HitBullet : MonoBehaviour {
 		if (other.gameObject.layer == layerTarget)
         {
 			createExplotion (other.gameObject);
-			gameObject.SetActive (false);
+            if (desactiveImpact)
+                gameObject.SetActive (false);
         }
 
     }
@@ -106,8 +109,10 @@ public class HitBullet : MonoBehaviour {
 	{
 		if (other.gameObject.layer == layerTarget)
 		{
+            
             createExplotion(other.gameObject);
-            gameObject.SetActive(false);
+            if(desactiveImpact)
+               gameObject.SetActive(false);
         }
 
 	}

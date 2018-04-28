@@ -4,16 +4,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuOptions : MonoBehaviour {
+    [SerializeField]
+    GameObject FadeOut;
+
 
 
 	public void playGame()
 	{
-		SceneManager.LoadScene ("Main");
-	}
+        FadeOut.SetActive(true);
+        StartCoroutine(changeScene("LarsMision"));
+    }
 
     public void menuScene()
     {
-        SceneManager.LoadScene("MenuScene");
+        FadeOut.SetActive(true);
+        StartCoroutine(changeScene("MenuScene"));
+
+    }
+
+    IEnumerator changeScene(string scene)
+    {
+        yield return new WaitForSeconds(0.8f);
+        SceneManager.LoadScene(scene);
 
     }
 
