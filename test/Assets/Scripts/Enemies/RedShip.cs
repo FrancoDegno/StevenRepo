@@ -29,6 +29,8 @@ public class RedShip : EnemyShip
 		lateTime = delay;
 	}
 
+  
+
     public void setName(string t)
     {
         namePlayer = t;

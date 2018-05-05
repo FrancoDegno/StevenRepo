@@ -27,7 +27,7 @@ public class CreateEnemies : MonoBehaviour {
 	int changeby_enemieDeads;
 	[SerializeField]
 	float changeby_LapTime;
-   
+    int lastPoolsCant;
 
 
 	int number_wave=0;
@@ -36,8 +36,14 @@ public class CreateEnemies : MonoBehaviour {
 
 	void Start()
 	{
+        lastPoolsCant = parentsPools[parentsPools.Length - 1].childCount;
         StartCoroutine(delayCreator());
 	}
+
+    void Update()
+    {
+        print(number_wave);
+    }
 
     IEnumerator delayCreator()
     {
@@ -50,12 +56,39 @@ public class CreateEnemies : MonoBehaviour {
         yield return new WaitForSeconds(changeby_LapTime);
         number_wave++;
         yield return new WaitForSeconds(changeby_LapTime);
-        MySingleClass.fGame = true;
+        number_wave++;
+        StartCoroutine(FinishWaves());
     }
+
+    IEnumerator FinishWaves()
+    {
+        yield return new WaitForSeconds(5);
+       
+        if (number_wave >= parentsPools.Length)
+        {
+            print("Call wave is " + number_wave);
+            int count = 0;
+            for (int i = 0; i < parentsPools[parentsPools.Length - 1].childCount; i++)
+            {
+                if (!parentsPools[parentsPools.Length - 1].GetChild(i).gameObject.activeInHierarchy)
+                    count++;
+            }
+            if (lastPoolsCant == count)
+                MySingleClass.fGame = true;
+            else
+                StartCoroutine(FinishWaves());
+        }
+        else
+            StartCoroutine(FinishWaves());
+        
+    }
+
 
 	GameObject selectDesactiveShip()
 	{
-		
+        if (number_wave >= parentsPools.Length)
+            return null;
+
 		for (int i = 0; i < parentsPools [number_wave].childCount; i++) {
 			if (!parentsPools [number_wave].GetChild (i).gameObject.activeInHierarchy) {
 				return parentsPools [number_wave].GetChild (i).gameObject;

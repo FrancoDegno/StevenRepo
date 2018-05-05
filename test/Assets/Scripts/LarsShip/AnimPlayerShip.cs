@@ -11,6 +11,7 @@ public class AnimPlayerShip : MonoBehaviour {
     [SerializeField]
     Animator propAnimator;
 
+    bool accel = false;
     // Use this for initialization
     void Start () {
 		
@@ -45,9 +46,15 @@ public class AnimPlayerShip : MonoBehaviour {
         }
         else
         {
-            propAnimator.SetBool("prop", false);
-            if (axisX > 0)
-                propAnimator.SetBool("Boost", true);
+            
+            if (axisX > 0) {
+                if (accel) { 
+                    propAnimator.SetBool("prop", false);
+                    propAnimator.SetBool("Boost", true);
+                }
+                else
+                    propAnimator.SetBool("prop", true);
+            }
         }
 
         if(axisY>0)
@@ -58,4 +65,23 @@ public class AnimPlayerShip : MonoBehaviour {
 
     }
 
+
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == 12)
+        {
+            accel = true;
+        }
+
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.layer == 12)
+        {
+            accel =false;
+        }
+
+    }
 }

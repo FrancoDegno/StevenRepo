@@ -17,7 +17,8 @@ public class ReciveDmg : MonoBehaviour {
     [Header("Hp damageded")]
 	[SerializeField]
 	public float realHp;
-
+    [SerializeField]
+    bool restOnEnable = true;
 
 
 	void Start()
@@ -26,7 +27,11 @@ public class ReciveDmg : MonoBehaviour {
 
 	}
 
-    
+    void OnEnable()
+    {
+        if(restOnEnable)
+            restartHp();
+    }
 
     public void restartHp()
 	{
@@ -38,6 +43,9 @@ public class ReciveDmg : MonoBehaviour {
 	public bool reciveDamage(float dmg)
     {
 		realHp-= dmg;
+        if (realHp < 0)
+            realHp = 0;
+
 		if (realHp <= 0) {
 			death ();
 			return true;
@@ -66,6 +74,7 @@ public class ReciveDmg : MonoBehaviour {
 
     public virtual void death()
     {
+
 		if (!DesactiveInDead)
 			Destroy (this.gameObject);
 		else {

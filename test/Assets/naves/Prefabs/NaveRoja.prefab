@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
-  explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
+  explotion: {fileID: 1835976081312724, guid: d5e1065a210b37a478c8bf6a42e014a7, type: 2}
   Hp: 100
-  DesactiveInDead: 0
+  DesactiveInDead: 1
   realHp: 0
+  restOnEnable: 1
 --- !u!114 &114945920662521788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -147,6 +148,7 @@ MonoBehaviour:
   BulletDmg: 5
   sizeImpactExplo: 0
   sizeDeathExplo: 0
+  desactiveImpact: 1
 --- !u!212 &212397894884723084
 SpriteRenderer:
   m_ObjectHideFlags: 1

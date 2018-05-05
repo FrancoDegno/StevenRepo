@@ -13,14 +13,34 @@ public class AnimStebonnie : MonoBehaviour {
     float axisY;
 
 	int istate=0;
+
+    bool setting = false;
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
+    public void setOff()
+    {
+        setting = true;
+        istate = 0;
+        myAnim.SetInteger("state", istate);
+        propRightAnim.SetInteger("state", istate);
+        propLeftAnim.SetInteger("state", istate);
+        Invoke("offAnim", 0.3f);
+    }
+
+    public void offAnim()
+    {
+        setting = false;
+        enabled = false;
+        myAnim.enabled = false;
+        
+    }
+
 	// Update is called once per frame
 	void Update () {
-
+        if (!setting) { 
         axisX = Input.GetAxis("Horizontal");
         axisY = Input.GetAxis("Vertical");
 
@@ -54,6 +74,6 @@ public class AnimStebonnie : MonoBehaviour {
 		myAnim.SetInteger("state", istate);
 		propRightAnim.SetInteger ("state", istate);
 		propLeftAnim.SetInteger ("state", istate);
-
+        }
     }
 }

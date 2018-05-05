@@ -17,20 +17,31 @@ public class FollowObject : MonoBehaviour {
     Vector3 followVector;
 	// Use this for initialization
 	void Start () {
+        restartPosition();
+	}
+
+    public void restartPosition()
+    {
+        transform.position = target.position;
         followVector = target.position;
         startcoroutine();
-	}
+    }
 
     void startcoroutine()
     {
         StartCoroutine(follow());
         
     }
+
+    void OnEnable()
+    {
+        restartPosition();
+    }
 	
     IEnumerator follow()
     {
         yield return new WaitForSeconds(refreshFollow);
-        
+        print("follow");
 
         if (ejex && ejey && ejez)
             followVector = target.position;

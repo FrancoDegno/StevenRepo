@@ -6,19 +6,20 @@ public class FinishGame : MonoBehaviour {
     [SerializeField]
     GameObject player;
     [SerializeField]
-    GameObject victory;
+    GameObject[] victory= new GameObject[1];
 
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+
 	
 	// Update is called once per frame
 	void Update () {
         if (MySingleClass.fGame && player)
         { 
-            victory.SetActive(true);
+            for(int i=0;i<victory.Length;i++)
+            {
+                victory[i].SetActive(true);
+            }
+         
             Destroy(this);
         }
     }

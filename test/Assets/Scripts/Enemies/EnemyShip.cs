@@ -63,7 +63,7 @@ abstract public class EnemyShip : MonoBehaviour {
 
 
 
-    void OnTriggerEnter2D(Collider2D other)
+    protected void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.layer == layerOff)
             this.gameObject.SetActive(false);

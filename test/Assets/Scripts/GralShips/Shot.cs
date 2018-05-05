@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 abstract public class Shot : MonoBehaviour {
- 
+
+    AudioShots audio;
 	[SerializeField]
 	protected Transform CannonPos;
 	[SerializeField]
 	Transform poolObject;
     [SerializeField]
     GameObject superShot;
-
 
 	public enum shots{single,triple,homming,nothing};
 	[SerializeField]
@@ -35,6 +35,8 @@ abstract public class Shot : MonoBehaviour {
 
     protected void Start()
     {
+        if(GetComponent<AudioShots>())
+            audio = GetComponent<AudioShots>();
         if(superShot)
             other = superShot.GetComponentInChildren<BoxCollider2D>();
        
@@ -58,22 +60,14 @@ abstract public class Shot : MonoBehaviour {
        
 	}
 
-    public virtual void HommingShot(Transform target)
-	{
-		if (shoot) {
-			shoot = false;
-			lateTime = 0;
-			GameObject auxBullet = ReturnBullet();
-			auxBullet.GetComponent<HomingBullet> ().target = target;
-		}
-	
-	}
 
 	public virtual void SingleShot(float ang)
 	{	if (shoot) {
 			shoot = false;
 			lateTime = 0;
        		GameObject auxBullet = ReturnBullet();
+            if(audio!=null)
+                audio.playSingleAudio();
 			if (auxBullet != null) {
 				auxBullet.transform.position = CannonPos.position;
 				auxBullet.SetActive (true);
@@ -92,7 +86,8 @@ abstract public class Shot : MonoBehaviour {
     {
         if(superShot && lateTimess>delay)
         {
-            
+            if (audio != null)
+                audio.playSuperAudio();
             lateTimess = 0;
             print(lateTimess);
             superShot.GetComponent<Animator>().SetBool("active", true);
@@ -118,6 +113,8 @@ abstract public class Shot : MonoBehaviour {
     protected virtual void TripleShot(float ang1,float ang2,float ang3)
     {
 		if (shoot) {
+            if (audio != null)
+                audio.playTripleAudio();
 			shoot = false;
 			lateTime = 0;
 			float[] angles = new float[3]{ ang3, ang2, ang1 };
@@ -139,6 +136,7 @@ abstract public class Shot : MonoBehaviour {
 
 
     //-------------OBTENER BALA DESACTIVADA --------------
+    #region Obtain Bullet;
 
     protected GameObject ReturnBullet()
     {
@@ -150,7 +148,19 @@ abstract public class Shot : MonoBehaviour {
 
         return null;
     }
+    #endregion
 
+    //public virtual void HommingShot(Transform target)
+    //{
+    //    if (shoot)
+    //    {
+    //        shoot = false;
+    //        lateTime = 0;
+    //        GameObject auxBullet = ReturnBullet();
+    //        auxBullet.GetComponent<HomingBullet>().target = target;
+    //    }
+
+    //}
 
 
 }

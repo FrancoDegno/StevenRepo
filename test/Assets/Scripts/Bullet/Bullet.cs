@@ -29,7 +29,7 @@ public class Bullet : MonoBehaviour {
         mov3d = true;
     }
 
-    public void bullet3D()
+    public virtual void bullet3D()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speedBullet);
 

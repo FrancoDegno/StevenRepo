@@ -10,30 +10,40 @@ public class NaveAmarilla : EnemyShip
 	[SerializeField]
 	float SpeedY=0;
 
-
     [SerializeField]
     Transform parentShips;
     [SerializeField]
+    Transform positionShips;
     Transform[] childShips = new Transform[4];
     [Header("Release Ships")]
     [SerializeField]
     float time;
+
+    [Header("Attack")]
     [SerializeField]
+    bool letAttack;
+    [SerializeField]
+    int LayerToRelease;
+
     bool release = false;
 
 
     void Start()
     {
+        for(int i=0;i<parentShips.childCount;i++)
+        {
+            childShips[i] = parentShips.GetChild(i);
+        }
         base.Start();
         restart();
     }
 
     public override void restart()
     {
-        for (int i = 0; i < parentShips.childCount; i++)
+        for (int i = 0; i < positionShips.childCount; i++)
         {
             childShips[i].gameObject.SetActive(true);
-            childShips[i].parent = parentShips.GetChild(i);
+            childShips[i].parent = positionShips.GetChild(i);
             childShips[i].localPosition = Vector3.zero;
             childShips[i].eulerAngles = new Vector3(0, 0, 180);
             childShips[i].GetComponent<EnemyShip>().restart();
@@ -58,8 +68,7 @@ public class NaveAmarilla : EnemyShip
 	void FixedUpdate ()
 	{
 		MovShip (speed);
-        if (release)
-            Attack();
+     
 	}
 
 
@@ -90,6 +99,21 @@ public class NaveAmarilla : EnemyShip
         i++;
         childShips[i].GetComponent<EnemyShip>().startMov();
         childShips[i].parent = null;
+    }
+
+
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+
+        base.OnTriggerEnter2D(other);
+
+        if (other.gameObject.layer == LayerToRelease && letAttack)
+        {
+            
+            Attack();
+
+        }
     }
 
 

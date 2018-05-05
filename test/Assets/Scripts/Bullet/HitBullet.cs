@@ -72,9 +72,8 @@ public class HitBullet : MonoBehaviour {
         if (explotion != null) {
 			float size = sizeImpactExplo;
             position = transform.position;
-            print(other.name);
 			//si el objeto al que se le hace daño es destruido retornara true
-		if (other.GetComponent<ReciveDmg> ().reciveDamage(BulletDmg)) { 
+		if (other.GetComponent<ReciveDmg>() && other.GetComponent<ReciveDmg> ().reciveDamage(BulletDmg)) { 
 			    size = sizeDeathExplo;
                 position = other.transform.position;
             }

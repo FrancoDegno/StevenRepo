@@ -5,9 +5,11 @@ using UnityEngine;
 using System.IO;
 
 
+
 public class NpcsTalk : MonoBehaviour {
 
-	[SerializeField]
+    [SerializeField]
+    TextAsset msg;
 	string messege;
 	[SerializeField]
 	Text text;
@@ -23,8 +25,9 @@ public class NpcsTalk : MonoBehaviour {
 
 	void Start()
 	{
-		audio = new AudioSource ();
-		print ("Ready and go");
+        
+        messege = msg.text;
+        audio = gameObject.AddComponent<AudioSource>() as AudioSource;
 		write ();
 
 	}
@@ -38,8 +41,8 @@ public class NpcsTalk : MonoBehaviour {
 	IEnumerator writeLetter()
 	{
 		yield return new WaitForSeconds (delayLetter);
-		text.text += messege [index];
-		if (clipSound != null)
+        text.text += messege [index];
+		if (clipSound != null && messege[index]!=' ')
 			this.audio.PlayOneShot (clipSound);
 		index++;
 		write ();

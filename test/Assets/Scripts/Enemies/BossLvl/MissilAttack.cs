@@ -8,41 +8,65 @@ public class MissilAttack : MonoBehaviour {
 
 
     [SerializeField]
-    int misilsToLaunch;
+    float timerLaunch;
     [SerializeField]
     Transform misilPool;
     GameObject[] misils;
+    public delegate void PauseMisil();
+    public static PauseMisil misilPause;
 
-	// Use this for initialization
-	void Start () {
+    public delegate void UnPauseMisil();
+    public static PauseMisil misilUnPause;
+
+    // Use this for initialization
+    void Start () {
+       
+        
         misils = new GameObject[misilPool.childCount];
         
         for(int i=0;i<misils.Length;i++)
         {
             misils[i] = misilPool.GetChild(i).gameObject;
         }
-        Invoke("attack", 5);
 
 	}
 
-
-    void attack()
+    public void attack()
     {
-       
+
         GameObject[] launchMisils = searchMisils();
         if (launchMisils == null)
             return;
 
+
         AttackObjectCamera.SetActive(true);
+        if(misilPause!=null)
+            misilPause();
         StartCoroutine(waitActivate(launchMisils));
 
     }
+
+
+    public bool readyToAttack()
+    {
+        if (searchMisils() != null)
+
+            return true;
+        else
+            return false;
+
+    }
+
+
+  
 
     IEnumerator waitActivate(GameObject[] launch)
     {
         yield return new WaitForSeconds(3);
         WarningShip.start = true;
         AttackObjectCamera.SetActive(false);
+        if(misilUnPause!=null)
+            misilUnPause();
         for(int i=0;i<launch.Length;i++)
         {
             launch[i].SetActive(true);
@@ -57,6 +81,7 @@ public class MissilAttack : MonoBehaviour {
         int nmisil = 0;
         for(int i=0;i<misils.Length;i++)
         {
+           
             if (!misils[i].activeInHierarchy && launchMisil.Count<4)
                 launchMisil.Add(misils[i]);
         }

@@ -12,20 +12,22 @@ namespace Assets.Scripts.LarsShip
         CharacterMov movPlayer;
        
 
-        void Update()
+
+        void FixedUpdate()
         {
           
         	if (movPlayer.stop == 0) {
 				if (MySingleClass.SpeedTimer <= 3) {
 					MySingleClass.SpeedTimer += Time.deltaTime* 0.1f;
-			}
-} else 
-		{
+			    }
+            }
+            else 
+		    {
 				if (MySingleClass.SpeedTimer >= 1) {
 					MySingleClass.SpeedTimer -= Time.deltaTime*0.2f;
 			
-		}
-		}
+		        }
+		    }
 
         }
 
