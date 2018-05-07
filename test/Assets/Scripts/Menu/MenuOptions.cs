@@ -9,17 +9,10 @@ public class MenuOptions : MonoBehaviour {
 
 
 
-	public void playGame()
-	{
-        FadeOut.SetActive(true);
-        StartCoroutine(changeScene("LarsMision"));
-    }
-
-    public void menuScene()
+    public void change(string nameScene)
     {
         FadeOut.SetActive(true);
-        StartCoroutine(changeScene("MenuScene"));
-
+        StartCoroutine(changeScene(nameScene));
     }
 
     IEnumerator changeScene(string scene)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ThemeMusic : MonoBehaviour {
-    [SerializeField]
+
     AudioSource audio;
     [SerializeField]
     AudioClip clip;

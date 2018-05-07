@@ -6,6 +6,29 @@ public class Explotion : MonoBehaviour
 
 	[SerializeField]
 	float timer_desactive;
+    AudioSource audio;
+    AudioClip explo;
+
+
+    void OnAwake()
+    {
+        audio = gameObject.AddComponent<AudioSource>() as AudioSource;
+    }
+
+    public void getAudio(AudioClip au)
+    {
+        explo = au;
+    }
+
+    void onEnable()
+    {
+        if (audio != null) {
+            float size = transform.localScale.x;
+            audio.volume = 1.5f * size;
+            audio.PlayOneShot(explo);
+        }
+
+    }
 
 	public float speed {
 		get;

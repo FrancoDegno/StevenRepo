@@ -37,6 +37,7 @@ abstract public class Shot : MonoBehaviour {
     {
         if(GetComponent<AudioShots>())
             audio = GetComponent<AudioShots>();
+
         if(superShot)
             other = superShot.GetComponentInChildren<BoxCollider2D>();
        

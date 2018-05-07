@@ -5,11 +5,8 @@ using UnityEngine;
 public class AudioShots : MonoBehaviour {
 
     // Use this for initialization
-    [SerializeField]
     AudioClip singleShot;
-    [SerializeField]
     AudioClip tripleShot;
-    [SerializeField]
     AudioClip superShot;
 
     AudioSource audio;
@@ -42,17 +39,20 @@ public class AudioShots : MonoBehaviour {
 
     public void playSingleAudio()
     {
-        audio.PlayOneShot(singleShot);
+        if(singleShot!=null)
+            audio.PlayOneShot(singleShot);
     }
 
     public void playTripleAudio()
     {
-        audio.PlayOneShot(tripleShot);
+        if(tripleShot!=null)
+            audio.PlayOneShot(tripleShot);
     }
 
     public void playSuperAudio()
     {
-        audio.PlayOneShot(superShot);
+        if(superShot!=null)
+            audio.PlayOneShot(superShot);
     }
 
 }
