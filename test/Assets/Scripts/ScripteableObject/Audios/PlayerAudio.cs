@@ -9,5 +9,9 @@ public class PlayerAudio : ScriptableObject{
     public AudioClip TripleShot;
     public AudioClip SuperShot;
 
+    [Range(0, 1)]
+    public float Volume;
+    [Range(0, 1)]
+    public float Pitch;
 
 }

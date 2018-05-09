@@ -19,22 +19,36 @@ public class LAserAudioManager : MonoBehaviour {
         audio = gameObject.AddComponent<AudioSource>() as AudioSource;
     }
 
+    public void setAudioCharge(AudioClip clip)
+    {
+        audioCharge = clip;
+    }
+
+    public void setAudioShoot(AudioClip clip)
+    {
+        audioShoot = clip;
+    }
+
     bool active = true;
 
 
     void OnEnable()
     {
         active = true;
-        audio.clip = audioCharge;
-        audio.loop = true;
-        audio.Play();
+        if (audioCharge != null) {
+            print("play");
+            audio.clip = audioCharge;
+            audio.loop = true;
+            audio.Play();
+        }
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
-        if(laser.activeInHierarchy && active)
+        if(audioShoot!=null && laser.activeInHierarchy && active)
         {
+            print("play2");
             active = false;
             audio.loop = false;
             audio.Stop();

@@ -6,4 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="ExploSound",menuName = "CreateAudio/Explotions/ExplotionSound")]
 public class ExploAudio : ScriptableObject {
     public AudioClip Explo;
+    [Range(0, 1)]
+    public float Volume;
+    [Range(0, 1)]
+    public float Pitch;
 }

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   singleAudio: {fileID: 0}
   TripleAudio: {fileID: 0}
+  Volume: 0.5
+  Pitch: 0.5

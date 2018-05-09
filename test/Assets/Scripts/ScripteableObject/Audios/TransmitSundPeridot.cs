@@ -5,14 +5,26 @@ using UnityEngine;
 public class TransmitSundPeridot : MonoBehaviour {
 
     [SerializeField]
-    EnemyAudio data;
-    AudioShots scriptToTransmit;
+    EnemyAudio audio;
+
+    AudioShots transmit;
 
     void Awake()
     {
 
-        scriptToTransmit = GetComponent<AudioShots>();
-        scriptToTransmit.setSingleAudio(data.singleAudio);
-        scriptToTransmit.setTripleAudio(data.TripleAudio);
+        transmit = GetComponent<AudioShots>();
+        transmit.setSingleAudio(audio.singleAudio);
+        transmit.setTripleAudio(audio.TripleAudio);
+        StartCoroutine(transmitAudiOpt());
     }
+
+    IEnumerator transmitAudiOpt()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AudioSource manager = GetComponent<AudioSource>();
+        manager.volume = audio.Volume;
+        manager.pitch = audio.Pitch;
+    }
+
+
 }

@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9262d7dbe6621fe4a84fe28fbdda99bf, type: 3}
-  m_Name: ExploPurpleSound
+  m_Script: {fileID: 11500000, guid: c7108d93f9e9bb14eb842855dbdad764, type: 3}
+  m_Name: LaserAudio
   m_EditorClassIdentifier: 
-  Explo: {fileID: 0}
+  chargeAudio: {fileID: 8300000, guid: eff1f157988c02e4b860ee4e121c0e9e, type: 3}
+  laserShoot: {fileID: 8300000, guid: 8fc5fe8668bce2c49b512c85a9bfbc2a, type: 3}
   Volume: 0.5
   Pitch: 0.5

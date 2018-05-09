@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Name: ExploGreenSound
   m_EditorClassIdentifier: 
   Explo: {fileID: 0}
+  Volume: 0.5
+  Pitch: 0.5

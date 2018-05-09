@@ -7,5 +7,9 @@ using UnityEngine;
 public class EnemyAudio : ScriptableObject {
     public AudioClip singleAudio;
     public AudioClip TripleAudio;
+    [Range(0, 1)]
+    public float Volume;
+    [Range(0, 1)]
+    public float Pitch;
 
 }

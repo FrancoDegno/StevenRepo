@@ -5,18 +5,27 @@ using UnityEngine;
 public class TransmitSound : MonoBehaviour {
 
     [SerializeField]
-    PlayerAudio data;
-    AudioShots scriptToTransmit;
+    PlayerAudio audio;
+
+    AudioShots transmit;
 
     void Awake()
     {
 
-        scriptToTransmit = GetComponent<AudioShots>();
-        scriptToTransmit.setSingleAudio(data.SingleShot);
-        scriptToTransmit.setTripleAudio(data.TripleShot);
-        scriptToTransmit.setsuperAudio(data.SuperShot);
+        transmit = GetComponent<AudioShots>();
+        transmit.setSingleAudio(audio.SingleShot);
+        transmit.setTripleAudio(audio.TripleShot);
+        transmit.setsuperAudio(audio.SuperShot);
+        StartCoroutine(transmitAudiOpt());
     }
 
+    IEnumerator transmitAudiOpt()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AudioSource manager = GetComponent<AudioSource>();
+        manager.volume = audio.Volume;
+        manager.pitch = audio.Pitch;
+    }
 
 
 }

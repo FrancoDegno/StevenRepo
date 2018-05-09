@@ -14,3 +14,5 @@ MonoBehaviour:
   SingleShot: {fileID: 0}
   TripleShot: {fileID: 0}
   SuperShot: {fileID: 0}
+  Volume: 0.5
+  Pitch: 0.5

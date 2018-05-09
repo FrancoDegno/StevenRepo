@@ -14,7 +14,7 @@ public class CharacterMov : MonoBehaviour {
     public float velX=0;
     public float velY = 0;
     public int stop = 1;
-	
+    public int stopf = 1;
 
    float axisX, axisY;
 	// Use this for initialization
@@ -44,11 +44,12 @@ public class CharacterMov : MonoBehaviour {
 			transform.Translate(new Vector3(Time.deltaTime *-1* velX*stop, 0));
         }
 
-		if (axisX>0)
+        if (axisX > 0)
         {
-			//this.transform.position += new Vector3(Time.deltaTime *stop* velX, 0);
-			transform.Translate(new Vector3(Time.deltaTime * velX*stop, 0));
+            //this.transform.position += new Vector3(Time.deltaTime *stop* velX, 0);
+            transform.Translate(new Vector3(Time.deltaTime * velX * stopf, 0));
         }
+     
 
 		if (axisY>0)
         {
@@ -78,7 +79,10 @@ public class CharacterMov : MonoBehaviour {
 	void OnTriggerExit2D(Collider2D other)
 	{
 		if (other.gameObject.layer == layerStop)
-			stop = 1;
+        {
+            stop = 1;
+        }
+			
 
 	}
 

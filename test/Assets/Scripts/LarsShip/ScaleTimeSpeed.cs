@@ -31,20 +31,20 @@ namespace Assets.Scripts.LarsShip
 
         }
 
-        void OnCollisionEnter2D(Collision2D other)
+        void OnTriggerStay2D(Collider2D other)
         {
             if (other.gameObject.layer == 12)
             {
-                movPlayer.stop = 0;
+                movPlayer.stopf = 0;
             }
 
         }
 
-        void OnCollisionExit2D(Collision2D other)
+        void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.layer == 12)
             {
-                movPlayer.stop = 1;
+                movPlayer.stopf = 1;
 
             }
 

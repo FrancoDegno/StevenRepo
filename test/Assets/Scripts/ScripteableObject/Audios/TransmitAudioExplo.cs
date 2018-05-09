@@ -5,10 +5,22 @@ using UnityEngine;
 public class TransmitAudioExplo : MonoBehaviour {
     [SerializeField]
     ExploAudio audio;
+
     Explotion transmit;
 
     void Awake()
     {
+        transmit=GetComponent<Explotion>();
         transmit.getAudio(audio.Explo);
+        StartCoroutine(transmitAudiOpt());
+    }
+
+
+    IEnumerator transmitAudiOpt()
+    {
+        yield return new WaitForSeconds(0.5f);
+        AudioSource manager=GetComponent<AudioSource>();
+        manager.volume = audio.Volume;
+        manager.pitch = audio.Pitch;
     }
 }
