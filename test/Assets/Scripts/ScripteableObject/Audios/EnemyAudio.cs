@@ -9,7 +9,7 @@ public class EnemyAudio : ScriptableObject {
     public AudioClip TripleAudio;
     [Range(0, 1)]
     public float Volume;
-    [Range(0, 1)]
+    [Range(-3, 3)]
     public float Pitch;
 
 }

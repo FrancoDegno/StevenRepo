@@ -8,6 +8,6 @@ public class ExploAudio : ScriptableObject {
     public AudioClip Explo;
     [Range(0, 1)]
     public float Volume;
-    [Range(0, 1)]
+    [Range(-3, 3)]
     public float Pitch;
 }

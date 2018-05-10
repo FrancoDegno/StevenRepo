@@ -8,6 +8,7 @@ public class TransmitSound : MonoBehaviour {
     PlayerAudio audio;
 
     AudioShots transmit;
+    AudioSource manager;
 
     void Awake()
     {
@@ -22,10 +23,10 @@ public class TransmitSound : MonoBehaviour {
     IEnumerator transmitAudiOpt()
     {
         yield return new WaitForSeconds(0.5f);
-        AudioSource manager = GetComponent<AudioSource>();
+        manager = GetComponent<AudioSource>();
         manager.volume = audio.Volume;
         manager.pitch = audio.Pitch;
     }
 
-
+   
 }

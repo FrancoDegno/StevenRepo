@@ -39,8 +39,10 @@ public class AudioShots : MonoBehaviour {
 
     public void playSingleAudio()
     {
-        if(singleShot!=null)
+        if (singleShot != null) { 
             audio.PlayOneShot(singleShot);
+
+        }
     }
 
     public void playTripleAudio()
