@@ -5,7 +5,8 @@ using UnityEngine;
 public class ResetStebonnie : MonoBehaviour {
     [SerializeField]
     GameObject bship;
-
+    [SerializeField]
+    Vector3 startPosition;
     [SerializeField]
     Transform movObject;
     [SerializeField]
@@ -16,10 +17,9 @@ public class ResetStebonnie : MonoBehaviour {
     int layer;
     bool rest;
     float initialSpeed;
-    Vector3 startPosition;
+    
 	// Use this for initialization
 	void Start () {
-        startPosition = normalPlayer.transform.position;
         initialSpeed = movObject.root.GetComponent<Parallax>().speed;
 
     }

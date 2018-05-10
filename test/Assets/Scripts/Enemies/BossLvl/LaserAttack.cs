@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class LaserAttack : MonoBehaviour {
     [SerializeField]
+    float timeToDesactiveLaser = 0.5f;
+
+    [SerializeField]
     Transform parentLasers;
     GameObject[] Lasers = new GameObject[4];
     [SerializeField]
     GameObject WarningObj;
-    [SerializeField]
-    float minDelay;
-    [SerializeField]
-    float maxDelay;
     [SerializeField]
     GameObject[] parts = new GameObject[4];
 
@@ -62,7 +61,7 @@ public class LaserAttack : MonoBehaviour {
         Lasers[0].SetActive(true);
         yield return new WaitForSeconds(2);
         laserShoot(0);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToDesactiveLaser);
         Lasers[0].SetActive(false);
         }
 
@@ -72,7 +71,7 @@ public class LaserAttack : MonoBehaviour {
         Lasers[1].SetActive(true);
         yield return new WaitForSeconds(2);
         laserShoot(1);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToDesactiveLaser);
         Lasers[1].SetActive(false);
         }
 
@@ -83,7 +82,7 @@ public class LaserAttack : MonoBehaviour {
         Lasers[2].SetActive(true);
         yield return new WaitForSeconds(2);
         laserShoot(2);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToDesactiveLaser);
         Lasers[2].SetActive(false);
         }
 
@@ -93,7 +92,7 @@ public class LaserAttack : MonoBehaviour {
         Lasers[3].SetActive(true);
         yield return new WaitForSeconds(2);
         laserShoot(3);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(timeToDesactiveLaser);
         Lasers[3].SetActive(false);
         }
 

@@ -6,7 +6,8 @@ public class MissilAttack : MonoBehaviour {
     [SerializeField]
     GameObject AttackObjectCamera;
 
-
+    [SerializeField]
+    int cantMisilsToLaunch=4;
     [SerializeField]
     float timerLaunch;
     [SerializeField]
@@ -17,7 +18,7 @@ public class MissilAttack : MonoBehaviour {
 
     public delegate void UnPauseMisil();
     public static PauseMisil misilUnPause;
-
+    bool firstAttack = true;
     // Use this for initialization
     void Start () {
        
@@ -38,10 +39,13 @@ public class MissilAttack : MonoBehaviour {
         if (launchMisils == null)
             return;
 
-
+        if (firstAttack) {
         AttackObjectCamera.SetActive(true);
+        firstAttack = false;
         if(misilPause!=null)
             misilPause();
+
+        }
         StartCoroutine(waitActivate(launchMisils));
 
     }
@@ -82,11 +86,11 @@ public class MissilAttack : MonoBehaviour {
         for(int i=0;i<misils.Length;i++)
         {
            
-            if (!misils[i].activeInHierarchy && launchMisil.Count<4)
+            if (!misils[i].activeInHierarchy && launchMisil.Count< cantMisilsToLaunch)
                 launchMisil.Add(misils[i]);
         }
 
-        if (launchMisil.Count == 4)
+        if (launchMisil.Count == cantMisilsToLaunch)
             return launchMisil.ToArray();
         else
             return null;

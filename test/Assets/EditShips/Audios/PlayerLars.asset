@@ -15,4 +15,4 @@ MonoBehaviour:
   TripleShot: {fileID: 8300000, guid: 9521ae28f3437ae45bed5699f2e27223, type: 3}
   SuperShot: {fileID: 0}
   Volume: 0.86
-  Pitch: -1.72
+  Pitch: 1

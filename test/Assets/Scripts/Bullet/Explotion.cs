@@ -10,8 +10,9 @@ public class Explotion : MonoBehaviour
     AudioClip explo;
 
 
-    void OnAwake()
+    void Awake()
     {
+
         audio = gameObject.AddComponent<AudioSource>() as AudioSource;
     }
 
@@ -20,9 +21,10 @@ public class Explotion : MonoBehaviour
         explo = au;
     }
 
-    void onEnable()
+    void OnEnable()
     {
         if (audio != null) {
+            print("Audio");
             float size = transform.localScale.x;
             audio.volume = 1.5f * size;
             audio.PlayOneShot(explo);

@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9262d7dbe6621fe4a84fe28fbdda99bf, type: 3}
   m_Name: ExploGreenSound
   m_EditorClassIdentifier: 
-  Explo: {fileID: 0}
+  Explo: {fileID: 8300000, guid: c373146ce670d24458c41012cc466dbe, type: 3}
   Volume: 0.5
   Pitch: 0.5
