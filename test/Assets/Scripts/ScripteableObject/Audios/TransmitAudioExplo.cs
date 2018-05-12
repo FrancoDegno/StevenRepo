@@ -12,13 +12,14 @@ public class TransmitAudioExplo : MonoBehaviour {
     {
         transmit=GetComponent<Explotion>();
         transmit.getAudio(audio.Explo);
+        transmit.reciveV(audio.transmitVolume);
         StartCoroutine(transmitAudiOpt());
     }
 
 
     IEnumerator transmitAudiOpt()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForEndOfFrame();
         AudioSource manager=GetComponent<AudioSource>();
         manager.volume = audio.Volume;
         manager.pitch = audio.Pitch;
