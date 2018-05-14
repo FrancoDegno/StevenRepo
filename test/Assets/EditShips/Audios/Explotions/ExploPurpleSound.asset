@@ -17,7 +17,10 @@ MonoBehaviour:
   Pitch: 3
 =======
   Explo: {fileID: 8300000, guid: 9521ae28f3437ae45bed5699f2e27223, type: 3}
-  Volume: 0.588
+  Volume: 1
   Pitch: 0.5
+<<<<<<< HEAD
   transmitVolume: 1
 >>>>>>> 416e50d7f6563ce7fc6a579610a95aa3c9a2b3ce
+=======
+>>>>>>> parent of 416e50d... SoundExploFixed

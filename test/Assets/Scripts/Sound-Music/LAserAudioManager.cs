@@ -36,6 +36,7 @@ public class LAserAudioManager : MonoBehaviour {
     {
         active = true;
         if (audioCharge != null) {
+            print("play");
             audio.clip = audioCharge;
             audio.loop = true;
             audio.Play();
@@ -47,6 +48,7 @@ public class LAserAudioManager : MonoBehaviour {
 		
         if(audioShoot!=null && laser.activeInHierarchy && active)
         {
+            print("play2");
             active = false;
             audio.loop = false;
             audio.Stop();
