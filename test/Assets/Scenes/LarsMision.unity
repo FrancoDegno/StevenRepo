@@ -4146,7 +4146,7 @@ GameObject:
   - component: {fileID: 239006119}
   - component: {fileID: 239006121}
   - component: {fileID: 239006120}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WALL (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11414,7 +11414,7 @@ GameObject:
   - component: {fileID: 611062923}
   - component: {fileID: 611062925}
   - component: {fileID: 611062924}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WALL (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19754,7 +19754,8 @@ MonoBehaviour:
   layerStop: 15
   velX: 5
   velY: 5
-  stop: 1
+  stoph: 1
+  stopv: 1
   stopf: 1
 --- !u!50 &1198342083
 Rigidbody2D:
