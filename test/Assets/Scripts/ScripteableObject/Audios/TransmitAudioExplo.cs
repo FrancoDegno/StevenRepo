@@ -12,6 +12,7 @@ public class TransmitAudioExplo : MonoBehaviour {
     {
         transmit=GetComponent<Explotion>();
         transmit.getAudio(audio.Explo);
+        transmit.reciveV(audio.transmitVolume);
         StartCoroutine(transmitAudiOpt());
     }
 
