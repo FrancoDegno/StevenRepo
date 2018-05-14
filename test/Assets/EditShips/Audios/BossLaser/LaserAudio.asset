@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7108d93f9e9bb14eb842855dbdad764, type: 3}
   m_Name: LaserAudio
   m_EditorClassIdentifier: 
-  chargeAudio: {fileID: 8300000, guid: eff1f157988c02e4b860ee4e121c0e9e, type: 3}
-  laserShoot: {fileID: 8300000, guid: 8fc5fe8668bce2c49b512c85a9bfbc2a, type: 3}
-  Volume: 0.5
-  Pitch: 0.5
+  chargeAudio: {fileID: 8300000, guid: ac406f24ab09c40449fd316da5bb1dc4, type: 3}
+  laserShoot: {fileID: 8300000, guid: 25ac5fc90771ef84c8cc01c53ae9e43b, type: 3}
+  Volume: 0.664
+  Pitch: 1

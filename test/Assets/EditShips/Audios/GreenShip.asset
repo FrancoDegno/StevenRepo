@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6beae376e0d78c94b8ebb09a778bca63, type: 3}
   m_Name: GreenShip
   m_EditorClassIdentifier: 
-  singleAudio: {fileID: 0}
+  singleAudio: {fileID: 8300000, guid: 2e9b684c5fe61f74db5dd2b2c073ae9a, type: 3}
   TripleAudio: {fileID: 0}
   Volume: 0.5
-  Pitch: 0.5
+  Pitch: 1

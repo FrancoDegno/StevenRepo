@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9f5107d99d999438e96c39f06fce12, type: 3}
   m_Name: PlayerStebonnie
   m_EditorClassIdentifier: 
-  SingleShot: {fileID: 0}
+  SingleShot: {fileID: 8300000, guid: 3c52e1805385aa843ab7681dd1e4621b, type: 3}
   TripleShot: {fileID: 0}
   SuperShot: {fileID: 0}
   Volume: 0.5

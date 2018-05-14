@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9262d7dbe6621fe4a84fe28fbdda99bf, type: 3}
   m_Name: ExploPurpleSound
   m_EditorClassIdentifier: 
-  Explo: {fileID: 8300000, guid: 9521ae28f3437ae45bed5699f2e27223, type: 3}
-  Volume: 1
-  Pitch: 0.5
+  Explo: {fileID: 8300000, guid: f6db30ca5f05cdd49828e60ef6dc8913, type: 3}
+  Volume: 0.25
+  Pitch: 3
