@@ -8,7 +8,7 @@ public class Explotion : MonoBehaviour
 	float timer_desactive;
     AudioSource audio;
     AudioClip explo;
-
+    bool reciveVolume = false;
 
     void Awake()
     {
@@ -21,16 +21,28 @@ public class Explotion : MonoBehaviour
         explo = au;
     }
 
+    public void reciveV(bool reciv)
+    {
+        reciveVolume = reciv;
+    }
+
     void OnEnable()
     {
-        if (audio != null) {
-            print("Audio");
-            float size = transform.localScale.x;
-            audio.volume = 1.5f * size;
+
+        if (audio != null)
+        {
+            if (!reciveVolume)
+            {
+               
+                float size = transform.localScale.x;
+                audio.volume = 1.5f * size;
+            }
             audio.PlayOneShot(explo);
         }
+     }
+    
 
-    }
+
 
 	public float speed {
 		get;

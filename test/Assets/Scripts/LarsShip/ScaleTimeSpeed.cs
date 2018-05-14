@@ -15,9 +15,10 @@ namespace Assets.Scripts.LarsShip
 
         void FixedUpdate()
         {
-          
-        	if (movPlayer.stop == 0) {
-				if (MySingleClass.SpeedTimer <= 3) {
+
+            if (movPlayer.stoph == 0)
+            {
+                if (MySingleClass.SpeedTimer <= 3) {
 					MySingleClass.SpeedTimer += Time.deltaTime* 0.1f;
 			    }
             }

@@ -13,10 +13,11 @@ public class CharacterMov : MonoBehaviour {
 
     public float velX=0;
     public float velY = 0;
-    public int stop = 1;
     public int stopf = 1;
+    public int stoph = 1;
+    public int stopv = 1;
 
-   float axisX, axisY;
+    float axisX, axisY;
 	// Use this for initialization
 	
 	
@@ -33,58 +34,62 @@ public class CharacterMov : MonoBehaviour {
     {
 		axisX = Input.GetAxis("Horizontal");
 		axisY = Input.GetAxis("Vertical");
-      
-		      
-		if (axisX == 0)
-			stop = 1;
 
-		if (axisX<0)
+
+        if (axisX == 0)
+            stoph = 1;
+        if (axisY == 0)
+            stopv = 1;
+
+        if (axisX<0)
         {
             //this.transform.localPosition -= new Vector3(Time.deltaTime * velX, 0);
-			transform.Translate(new Vector3(Time.deltaTime *-1* velX*stop, 0));
+            transform.Translate(new Vector3(Time.deltaTime * -1 * velX * stoph, 0));
         }
 
         if (axisX > 0)
         {
             //this.transform.position += new Vector3(Time.deltaTime *stop* velX, 0);
-            transform.Translate(new Vector3(Time.deltaTime * velX * stopf, 0));
+             this.transform.position += new Vector3(0, Time.deltaTime*velY*stopv);
         }
      
 
 		if (axisY>0)
         {
-            this.transform.position += new Vector3(0, Time.deltaTime*velY);
+            this.transform.position += new Vector3(0, Time.deltaTime * velY * stopv);
         }
 
         if (axisY<0)
         {
-            this.transform.position -= new Vector3(0, Time.deltaTime * velY);
+            this.transform.position -= new Vector3(0, Time.deltaTime * velY * stopv);
         }
 
 
     }
 
 
-	void OnCollisionEnter2D(Collision2D other)
-	{
-		if (other.gameObject.layer == layerStop) {
-			stop = 0;
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.layer == layerStop)
+        {
+            stopv = 0;
+            stoph = 0;
 
+        }
 
-		}
-
-	}
+    }
 
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-		if (other.gameObject.layer == layerStop)
+        if (other.gameObject.layer == layerStop)
         {
-            stop = 1;
+            stopv = 1;
+            stoph = 1;
         }
-			
 
-	}
+
+    }
 
 
 
