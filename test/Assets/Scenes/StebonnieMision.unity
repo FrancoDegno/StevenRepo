@@ -20225,6 +20225,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToDesactiveLaser: 1
   parentLasers: {fileID: 517560006}
+  Lasers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   WarningObj: {fileID: 1355732077}
   parts:
   - {fileID: 483536656}
@@ -20242,6 +20247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f75e34d63d95c141961e86bae34540d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stop: 0
 --- !u!1001 &1698717597
 Prefab:
   m_ObjectHideFlags: 0
@@ -21866,7 +21872,6 @@ GameObject:
   - component: {fileID: 1883201635}
   - component: {fileID: 1883201634}
   - component: {fileID: 1883201633}
-  - component: {fileID: 1883201632}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -21874,13 +21879,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1883201632
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1883201631}
-  m_Enabled: 1
 --- !u!124 &1883201633
 Behaviour:
   m_ObjectHideFlags: 0

@@ -71,6 +71,12 @@ public class Missil : Bullet {
         MissilAttack.misilUnPause -= unPause;
     }
 
+    void OnDestroy()
+    {
+        MissilAttack.misilPause -= pause;
+        MissilAttack.misilUnPause -= unPause;
+    }
+
     IEnumerator follow()
     {
         yield return new WaitForSeconds(refreshFollow);

@@ -50,7 +50,7 @@ public class CharacterMov : MonoBehaviour {
         if (axisX > 0)
         {
             //this.transform.position += new Vector3(Time.deltaTime *stop* velX, 0);
-             this.transform.position += new Vector3(Time.deltaTime * velX * stopf,0);
+            transform.Translate(new Vector3(Time.deltaTime * velX * stopf, 0));
         }
      
 

@@ -31,7 +31,6 @@ public class ResetStebonnie : MonoBehaviour {
 
         if (rest) {
             movObject.transform.position = Vector3.Lerp(movObject.transform.position,startPosition, Time.deltaTime * 0.5f);
-            print(Vector3.Distance(movObject.transform.position, startPosition));
             if (Vector3.Distance(movObject.transform.position, startPosition) < 5)
             {
                 activeObjects();
@@ -48,8 +47,6 @@ public class ResetStebonnie : MonoBehaviour {
         rest = false;
         normalPlayer.SetActive(true);
         backPlayer.SetActive(false);
-        bship.GetComponent<MissilAttack>().enabled = true;
-        bship.GetComponent<LaserAttack>().enabled = true;
         bship.GetComponent<BossShip>().enabled = true;
         normalPlayer.GetComponent<AnimStebonnie>().enabled = true;
         normalPlayer.GetComponent<Animator>().enabled = true;
@@ -68,8 +65,6 @@ public class ResetStebonnie : MonoBehaviour {
         rest = true;
         movObject.GetComponent<CharacterMov>().enabled = false;
         movObject.root.GetComponent<Parallax>().speed = 0;
-        bship.GetComponent<MissilAttack>().enabled = false;
-        bship.GetComponent<LaserAttack>().enabled = false;
         bship.GetComponent<BossShip>().enabled = false;
         
     }

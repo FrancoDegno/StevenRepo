@@ -8,6 +8,7 @@ public class LaserAttack : MonoBehaviour {
 
     [SerializeField]
     Transform parentLasers;
+    [SerializeField]
     GameObject[] Lasers = new GameObject[4];
     [SerializeField]
     GameObject WarningObj;
@@ -16,9 +17,11 @@ public class LaserAttack : MonoBehaviour {
 
     float refresh;
     Animator laserAnim;
-
+    Coroutine courutine;
     void Start()
     {
+       
+        BossShip.stopAllAttack += stopAttacks;
         for(int i=0;i<parentLasers.childCount;i++)
         {
             Lasers[i] = parentLasers.GetChild(i).gameObject;
@@ -26,11 +29,23 @@ public class LaserAttack : MonoBehaviour {
         
     }
 
+    void OnDestroy()
+    {
+        BossShip.stopAllAttack -= stopAttacks;
+    }
+
+    void stopAttacks()
+    {
+        if(courutine!=null)
+            StopCoroutine(courutine);
+        laserOff();
+    }
+
+
 
 	public void attack()
     {
-        //refresh = Random.Range(minDelay, maxDelay);
-        StartCoroutine(Update2());
+       courutine= StartCoroutine(Update2());
 
     }
 
@@ -48,52 +63,36 @@ public class LaserAttack : MonoBehaviour {
         laserAnim.SetBool("shoot", true);
     }
 
-    
+    void laserOff()
+    {
+        if (WarningObj != null)
+            WarningObj.SetActive(false);
+        for(int i=0;i<Lasers.Length;i++)
+        {
+            if(Lasers[i]!=null)
+                Lasers[i].SetActive(false);
+        }
+    }
 
 	
 	// Update is called once per frame
 	IEnumerator Update2 () {
+
         yield return new WaitForSeconds(refresh);
         WarningObj.SetActive(true);
 
-        if (parts[0].activeInHierarchy) { 
-        //-----------------Laser 1-----------------
-        Lasers[0].SetActive(true);
-        yield return new WaitForSeconds(2);
-        laserShoot(0);
-        yield return new WaitForSeconds(timeToDesactiveLaser);
-        Lasers[0].SetActive(false);
-        }
+        for (int i=0;i<4;i++)
+        {
+            if(parts[i].activeInHierarchy)
+            {
+                Lasers[i].SetActive(true);
+                yield return new WaitForSeconds(2);
+                laserShoot(i);
+                yield return new WaitForSeconds(timeToDesactiveLaser);
+                Lasers[i].SetActive(false);
 
-        if (parts[1].activeInHierarchy) { 
-        //-----------------Laser 2----------------
-        yield return new WaitForSeconds(1);
-        Lasers[1].SetActive(true);
-        yield return new WaitForSeconds(2);
-        laserShoot(1);
-        yield return new WaitForSeconds(timeToDesactiveLaser);
-        Lasers[1].SetActive(false);
-        }
+            }
 
-
-        if (parts[2].activeInHierarchy) {
-        //-----------------Laser 3-----------------
-        yield return new WaitForSeconds(1);
-        Lasers[2].SetActive(true);
-        yield return new WaitForSeconds(2);
-        laserShoot(2);
-        yield return new WaitForSeconds(timeToDesactiveLaser);
-        Lasers[2].SetActive(false);
-        }
-
-        if (parts[3].activeInHierarchy) { 
-        //-----------------Laser 4-----------------
-        yield return new WaitForSeconds(1);
-        Lasers[3].SetActive(true);
-        yield return new WaitForSeconds(2);
-        laserShoot(3);
-        yield return new WaitForSeconds(timeToDesactiveLaser);
-        Lasers[3].SetActive(false);
         }
 
         if (WarningObj!=null)

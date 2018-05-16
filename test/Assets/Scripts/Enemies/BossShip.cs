@@ -8,10 +8,29 @@ public class BossShip :MonoBehaviour {
 
     bool attacking = false;
     int a;
+    [SerializeField]
     bool stop;
 
+    public delegate void StopContinueAttacks();
+    public static StopContinueAttacks stopAllAttack;
 
-	void Start()
+ 
+
+    void OnDisable()
+    {
+        stop = true;
+        if (stopAllAttack != null)
+            stopAllAttack();
+        
+
+    }
+    void OnEnable()
+    {
+        StartAtk();
+    }
+
+
+    void StartAtk()
     {
         stop = false;
         laser = GetComponent<LaserAttack>();
@@ -19,28 +38,19 @@ public class BossShip :MonoBehaviour {
         StartCoroutine(initAtk());
     } 
 
-    void OnDisable()
-    {
-        stop = true;
-    }
-    void OnEnable()
-    {
-        Start();
-    }
 
-    
           
     IEnumerator initAtk()
     {
         
         yield return new WaitForEndOfFrame();
-        if(!stop)
         StartCoroutine(atk());
     }
 
     int selectAttack()
     {
-        int atk = Random.RandomRange(1, 3);
+
+        int atk = Random.Range(1, 3);
 
 
 
@@ -73,11 +83,14 @@ public class BossShip :MonoBehaviour {
            
         }
 
-        if (a == 2) 
+        if (a == 2 && !attacking) {
+            attacking = true;
             laser.attack();
+        }
 
         attacking = false;
-        StartCoroutine(atk());
+        if(!stop)
+            StartCoroutine(atk());
 
     }
 

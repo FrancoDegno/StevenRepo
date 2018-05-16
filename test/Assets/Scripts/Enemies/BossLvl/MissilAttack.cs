@@ -18,11 +18,16 @@ public class MissilAttack : MonoBehaviour {
 
     public delegate void UnPauseMisil();
     public static PauseMisil misilUnPause;
+
+
     bool firstAttack = true;
+    Coroutine coroutine;
     // Use this for initialization
     void Start () {
-       
-        
+
+        BossShip.stopAllAttack += stopAttacks;
+
+    
         misils = new GameObject[misilPool.childCount];
         
         for(int i=0;i<misils.Length;i++)
@@ -31,6 +36,22 @@ public class MissilAttack : MonoBehaviour {
         }
 
 	}
+
+
+    void OnDestroy()
+    {
+        BossShip.stopAllAttack -= stopAttacks;
+    }
+
+    void stopAttacks()
+    {
+        if(coroutine != null) { 
+            StopCoroutine(coroutine);
+            setMisilsCamera();
+        }
+    }
+
+  
 
     public void attack()
     {
@@ -46,7 +67,9 @@ public class MissilAttack : MonoBehaviour {
             misilPause();
 
         }
-        StartCoroutine(waitActivate(launchMisils));
+
+        coroutine = StartCoroutine(waitActivate(launchMisils)); ;
+        
 
     }
 
@@ -62,20 +85,24 @@ public class MissilAttack : MonoBehaviour {
     }
 
 
+    void setMisilsCamera()
+    {
+        AttackObjectCamera.SetActive(false);
+        if (misilUnPause != null)
+            misilUnPause();
+    }
   
 
     IEnumerator waitActivate(GameObject[] launch)
     {
-        yield return new WaitForSeconds(3);
-        WarningShip.start = true;
-        AttackObjectCamera.SetActive(false);
-        if(misilUnPause!=null)
-            misilUnPause();
-        for(int i=0;i<launch.Length;i++)
-        {
-            launch[i].SetActive(true);
-        }
-
+            yield return new WaitForSeconds(3);
+            WarningShip.start = true;
+            setMisilsCamera();
+            for(int i=0;i<launch.Length;i++)
+            {
+                launch[i].SetActive(true);
+            }
+        
 
     }
 
@@ -95,6 +122,7 @@ public class MissilAttack : MonoBehaviour {
         else
             return null;
     }
+
 
 
 

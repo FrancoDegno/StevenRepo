@@ -41,7 +41,7 @@ public class FollowObject : MonoBehaviour {
     IEnumerator follow()
     {
         yield return new WaitForSeconds(refreshFollow);
-        print("follow");
+
 
         if (ejex && ejey && ejez)
             followVector = target.position;
