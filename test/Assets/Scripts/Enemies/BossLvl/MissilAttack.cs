@@ -87,7 +87,8 @@ public class MissilAttack : MonoBehaviour {
 
     void setMisilsCamera()
     {
-        AttackObjectCamera.SetActive(false);
+        if(AttackObjectCamera!=null)
+            AttackObjectCamera.SetActive(false);
         if (misilUnPause != null)
             misilUnPause();
     }

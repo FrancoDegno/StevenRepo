@@ -7,9 +7,11 @@ public class TriggerDesactivate : MonoBehaviour {
     int layerImpact;
     [SerializeField]
     GameObject objToactDesact;
+    [SerializeField]
+    GameObject objToactDesact2;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -23,11 +25,14 @@ public class TriggerDesactivate : MonoBehaviour {
     {
         if(other.gameObject.layer==layerImpact)
         {
-            if (objToactDesact.activeInHierarchy)
+            if (objToactDesact.activeInHierarchy) { 
                 objToactDesact.SetActive(false);
-            else
+                objToactDesact2.SetActive(true);
+            }
+            else { 
                 objToactDesact.SetActive(true);
-
+                objToactDesact2.SetActive(false);
+            }
         }
 
     }

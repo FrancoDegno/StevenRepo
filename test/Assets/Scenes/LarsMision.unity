@@ -19973,7 +19973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09000eb2d53c0b47876fcacf4f308aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTotalHp: 1500
+  shieldTotalHp: 200
   shieldHp: 0
   shield: {fileID: 2044018431}
 --- !u!70 &1198342094
@@ -27985,6 +27985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fd9aba2231da2e49888d97616dbb12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeIn: {fileID: 1408809905}
   playerDmg: {fileID: 1198342091}
   divideBy: 50
 --- !u!1 &1690379102

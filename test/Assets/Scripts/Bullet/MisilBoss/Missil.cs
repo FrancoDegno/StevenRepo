@@ -80,7 +80,8 @@ public class Missil : Bullet {
     IEnumerator follow()
     {
         yield return new WaitForSeconds(refreshFollow);
-        transform.LookAt(target.position);
+        if(target!=null)
+            transform.LookAt(target.position);
         Start();
     }
 

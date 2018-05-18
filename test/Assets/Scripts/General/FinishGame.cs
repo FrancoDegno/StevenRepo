@@ -10,6 +10,10 @@ public class FinishGame : MonoBehaviour {
 
 
 
+    void OnDestroy()
+    {
+        MySingleClass.restSingle();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +24,7 @@ public class FinishGame : MonoBehaviour {
                 victory[i].SetActive(true);
             }
          
-            Destroy(this);
+        
         }
     }
 }

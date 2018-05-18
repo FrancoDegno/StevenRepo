@@ -66,7 +66,6 @@ public class CreateEnemies : MonoBehaviour {
        
         if (number_wave >= parentsPools.Length)
         {
-            print("Call wave is " + number_wave);
             int count = 0;
             for (int i = 0; i < parentsPools[parentsPools.Length - 1].childCount; i++)
             {

@@ -75,7 +75,7 @@ public class BossShip :MonoBehaviour {
 
         yield return new WaitForSeconds(3);
 
-        if (a==1)
+        if (a==1 && !stop)
         {
             misil.attack();
             attacking = true;
@@ -83,7 +83,7 @@ public class BossShip :MonoBehaviour {
            
         }
 
-        if (a == 2 && !attacking) {
+        if (a == 2 && !attacking && !stop) {
             attacking = true;
             laser.attack();
         }
