@@ -6,6 +6,8 @@ public class TriggerDesactivate : MonoBehaviour {
     [SerializeField]
     int layerImpact;
     [SerializeField]
+    int layerImpact2;
+    [SerializeField]
     GameObject objToactDesact;
     [SerializeField]
     GameObject objToactDesact2;
@@ -23,7 +25,7 @@ public class TriggerDesactivate : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer==layerImpact)
+        if(other.gameObject.layer==layerImpact || other.gameObject.layer == layerImpact2)
         {
             if (objToactDesact.activeInHierarchy) { 
                 objToactDesact.SetActive(false);

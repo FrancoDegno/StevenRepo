@@ -9,7 +9,9 @@ public class CharacterMov : MonoBehaviour {
 
    
 	[SerializeField]
-	int layerStop;
+	int layerStoph;
+    [SerializeField]
+    int layerStopv;
 
     public float velX=0;
     public float velY = 0;
@@ -70,10 +72,17 @@ public class CharacterMov : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.layer == layerStop)
+        if (other.gameObject.layer == layerStoph)
         {
-            stopv = 0;
+           
             stoph = 0;
+
+        }
+
+        if (other.gameObject.layer == layerStopv)
+        {
+
+            stopv= 0;
 
         }
 
@@ -82,10 +91,18 @@ public class CharacterMov : MonoBehaviour {
 
 	void OnTriggerExit2D(Collider2D other)
 	{
-        if (other.gameObject.layer == layerStop)
+        if (other.gameObject.layer == layerStoph)
         {
-            stopv = 1;
+
             stoph = 1;
+
+        }
+
+        if (other.gameObject.layer == layerStopv)
+        {
+
+            stopv = 1;
+
         }
 
 

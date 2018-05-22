@@ -18,12 +18,18 @@ public class BossShip :MonoBehaviour {
 
     void OnDisable()
     {
+
+        stopAttacks();
+
+    }
+
+    void stopAttacks()
+    {
         stop = true;
         if (stopAllAttack != null)
             stopAllAttack();
-        
-
     }
+
     void OnEnable()
     {
         StartAtk();
@@ -92,6 +98,15 @@ public class BossShip :MonoBehaviour {
         if(!stop)
             StartCoroutine(atk());
 
+    }
+
+
+    void FixedUpdate()
+    {
+        if(MySingleClass.fGame)
+        {
+            stopAttacks();
+        }
     }
 
 

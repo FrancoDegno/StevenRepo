@@ -17,7 +17,7 @@ public class MenuOptions : MonoBehaviour {
 
     IEnumerator changeScene(string scene)
     {
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene(scene);
 
     }

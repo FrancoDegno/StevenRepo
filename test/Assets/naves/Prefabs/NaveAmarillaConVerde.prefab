@@ -43,6 +43,8 @@ GameObject:
   - component: {fileID: 114225947181532730}
   - component: {fileID: 114112707477569762}
   - component: {fileID: 114848872740449354}
+  - component: {fileID: 114393117277850698}
+  - component: {fileID: 114696850874521810}
   m_Layer: 8
   m_Name: NaveVerdeWShield (1)
   m_TagString: Untagged
@@ -67,6 +69,8 @@ GameObject:
   - component: {fileID: 114713360278215790}
   - component: {fileID: 114468227221429106}
   - component: {fileID: 114137925198643670}
+  - component: {fileID: 114026372363910604}
+  - component: {fileID: 114087141221782008}
   m_Layer: 8
   m_Name: NaveVerdeWShield
   m_TagString: Untagged
@@ -139,6 +143,8 @@ GameObject:
   - component: {fileID: 114834095099359594}
   - component: {fileID: 114839224536161560}
   - component: {fileID: 114050745387686870}
+  - component: {fileID: 114926387457232630}
+  - component: {fileID: 114819314596960896}
   m_Layer: 8
   m_Name: NaveVerdeWShield (2)
   m_TagString: Untagged
@@ -209,6 +215,8 @@ GameObject:
   - component: {fileID: 114825106362189824}
   - component: {fileID: 114057231414999594}
   - component: {fileID: 114106013206369742}
+  - component: {fileID: 114238829392662992}
+  - component: {fileID: 114554238167749318}
   m_Layer: 8
   m_Name: NaveVerdeWShield (3)
   m_TagString: Untagged
@@ -423,7 +431,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1765428527201074
 GameObject:
   m_ObjectHideFlags: 1
@@ -1274,9 +1282,21 @@ MonoBehaviour:
   superShot: {fileID: 0}
   typeShot: 0
   myAnimator: {fileID: 0}
-  delay: 1
+  delay: 2
   lateTimess: 0
-  maxDelay: 2
+  maxDelay: 4
+--- !u!114 &114026372363910604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1156101126483460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad49a8668510a145a5e40be2945bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 6b63730cc7c65234687b1c818f752e20, type: 2}
 --- !u!114 &114050745387686870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1302,7 +1322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09000eb2d53c0b47876fcacf4f308aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTotalHp: 200
+  shieldTotalHp: 100
   shieldHp: 0
   shield: {fileID: 212152361368772204}
 --- !u!114 &114073372958309984
@@ -1322,6 +1342,17 @@ MonoBehaviour:
   sizeImpactExplo: 0.5
   sizeDeathExplo: 0.8
   desactiveImpact: 1
+--- !u!114 &114087141221782008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1156101126483460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146e4fc8191591b45b3802e262f5a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114104730093201928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1360,7 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09000eb2d53c0b47876fcacf4f308aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTotalHp: 200
+  shieldTotalHp: 100
   shieldHp: 0
   shield: {fileID: 212873473478601254}
 --- !u!114 &114137925198643670
@@ -1390,7 +1421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
   explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
-  Hp: 500
+  Hp: 300
   DesactiveInDead: 1
   realHp: 0
   restOnEnable: 0
@@ -1411,6 +1442,30 @@ MonoBehaviour:
   sizeImpactExplo: 0
   sizeDeathExplo: 0
   desactiveImpact: 1
+--- !u!114 &114238829392662992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444232090861318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad49a8668510a145a5e40be2945bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 6b63730cc7c65234687b1c818f752e20, type: 2}
+--- !u!114 &114393117277850698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128038434117808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad49a8668510a145a5e40be2945bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 6b63730cc7c65234687b1c818f752e20, type: 2}
 --- !u!114 &114442325982307132
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1440,9 +1495,9 @@ MonoBehaviour:
   superShot: {fileID: 0}
   typeShot: 0
   myAnimator: {fileID: 0}
-  delay: 1
+  delay: 2
   lateTimess: 0
-  maxDelay: 2
+  maxDelay: 4
 --- !u!114 &114468227221429106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1454,7 +1509,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09000eb2d53c0b47876fcacf4f308aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTotalHp: 200
+  shieldTotalHp: 100
   shieldHp: 0
   shield: {fileID: 212721166408300672}
 --- !u!114 &114471923368520882
@@ -1470,6 +1525,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerOff: 10
   speed: 5
+--- !u!114 &114554238167749318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444232090861318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146e4fc8191591b45b3802e262f5a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114593475991624368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1497,7 +1563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 95283061626941314}
   explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
-  Hp: 1000
+  Hp: 50
   DesactiveInDead: 1
   realHp: 0
   restOnEnable: 0
@@ -1514,10 +1580,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 95059208187637960}
   explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
-  Hp: 1000
+  Hp: 50
   DesactiveInDead: 1
   realHp: 0
   restOnEnable: 0
+--- !u!114 &114696850874521810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1128038434117808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146e4fc8191591b45b3802e262f5a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114711957781255054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1534,9 +1611,9 @@ MonoBehaviour:
   superShot: {fileID: 0}
   typeShot: 0
   myAnimator: {fileID: 0}
-  delay: 1
+  delay: 2
   lateTimess: 0
-  maxDelay: 2
+  maxDelay: 4
 --- !u!114 &114713360278215790
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1570,9 +1647,9 @@ MonoBehaviour:
   superShot: {fileID: 0}
   typeShot: 0
   myAnimator: {fileID: 0}
-  delay: 1
+  delay: 2
   lateTimess: 0
-  maxDelay: 2
+  maxDelay: 4
 --- !u!114 &114738128119844502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1599,10 +1676,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 95164246082366354}
   explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
-  Hp: 1000
+  Hp: 50
   DesactiveInDead: 1
   realHp: 0
   restOnEnable: 0
+--- !u!114 &114819314596960896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324398285655282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146e4fc8191591b45b3802e262f5a83e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114825106362189824
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1648,7 +1736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09000eb2d53c0b47876fcacf4f308aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldTotalHp: 200
+  shieldTotalHp: 100
   shieldHp: 0
   shield: {fileID: 212360868629833680}
 --- !u!114 &114848872740449354
@@ -1677,7 +1765,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerOff: 10
-  speed: -5
+  speed: -2.5
   Altura: 0.05
   SpeedY: 2
   parentShips: {fileID: 4477536821106066}
@@ -1698,10 +1786,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 95619128265383566}
   explotion: {fileID: 1835976081312724, guid: 420489d6c93f45149905b3143eec052d, type: 2}
-  Hp: 1000
+  Hp: 50
   DesactiveInDead: 1
   realHp: 0
   restOnEnable: 0
+--- !u!114 &114926387457232630
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324398285655282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad49a8668510a145a5e40be2945bb24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: 6b63730cc7c65234687b1c818f752e20, type: 2}
 --- !u!212 &212057081917499446
 SpriteRenderer:
   m_ObjectHideFlags: 1
